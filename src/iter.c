@@ -14,7 +14,7 @@ int filter(int* arr, int len, int (*fun)(int, int)) {
             arr[i] = arr[j];
             i++;
         }
-    return i+1; // len
+    return i; // len
 }
 
 int filter_map(int* arr, int len, int (*fun)(int, int)) {
