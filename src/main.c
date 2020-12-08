@@ -1,5 +1,7 @@
 #include "iter.h"
 
+int x = 0;
+
 int map_fn(int i, int v) {
     return v*2 + i;
 }
@@ -10,6 +12,10 @@ int filter_fn(int i, int v) {
 
 FMR fmap_fn(int i, int v) {
     return (FMR) {v * 2, v <= 5};
+}
+
+void for_each_fn(int i, int v) {
+    x++;
 }
 
 int main() {
@@ -37,5 +43,11 @@ int main() {
         fm_arr_1[i] = fm_arr_0[i];
         printf("%d ", fm_arr_1[i]);
     }
+
+    printf("\n");
+
+    int fe_arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    for_each(fe_arr, 10, &for_each_fn);
+    printf("%d\n", x);
     return 0;
 }
