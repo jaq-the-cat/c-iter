@@ -7,8 +7,8 @@
 #define true 1
 #define false 0
 
-void map(int*, int (*fun)(int, int));
-void filter(int*, int (*fun)(int, int));
-void for_each(int*, void (*fun)(int, int));
+void map(int*, int, int (*)(int, int));
+int filter(int*, int, int (*)(int, int));
+void for_each(int*, int, void (*)(int, int));
 
 #endif
