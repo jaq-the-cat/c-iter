@@ -17,15 +17,15 @@ int filter(int* arr, int len, int (*fun)(int, int)) {
     return i; // len
 }
 
-int filter_map(int* arr, int len, int (*fun)(int, int)) {
+int filter_map(int* arr, int len, FMR (*fun)(int, int)) {
     int i=0;
-    int r;
+    FMR r;
     for (int j=0; j<len; j++)
-        if ((r = CALL(fun, j, arr[j]))) {
-            arr[i] = r;
+        if ((r = CALL(fun, j, arr[j])).b) {
+            arr[i] = r.v;
             i++;
         }
-    return i+1; // len
+    return i; // len
 }
 
 void for_each(int* arr, int len, void (*fun)(int, int)) {
